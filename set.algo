@@ -1,0 +1,47 @@
+ALGORITHM algorithm_name
+VAR
+    n, m, i, j, s : INTEGER;
+    T1 : ARRAY_OF INTEGER[n];
+    T2 : ARRAY_OF INTEGER[m];
+    found: BOOLEAN
+BEGIN
+    write("Donner n & m : ");
+    read(n, m);
+    s:=0;
+    i:=0;
+
+    WHILE (i<n)  DO
+    found := False
+        FOR j FROM 0 TO m STEP 1  DO
+            IF (T1[i]=T2[j]) THEN
+                found=True;
+                break; 
+            ELSE
+
+                i+=1;
+            END_IF
+        END_FOR
+        IF (found=False) THEN
+            s=s+T1[i];
+        END_IF
+        i+=1; 
+    END_WHILE
+    i:=0;
+    WHILE (i<m)  DO
+    found := False
+        FOR j FROM 0 TO n STEP 1  DO
+            IF (T2[i]=T1[j]) THEN
+                found=True;
+                break; 
+            ELSE
+
+                i+=1;
+            END_IF
+        END_FOR
+        IF (found=False) THEN
+            s=s+T2[i];
+        END_IF
+        i+=1; 
+    END_WHILE
+
+END
